@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+/*Custom Properties*/
+
+:root {
+    --leading: 2em;
+}
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    margin-bottom: -1em;
+}
+
+.hero-bg {
+    background-image: linear-gradient(to bottom, purple, black);
+    color: white;
+    text-align: center;
+    padding-bottom: 3em;
+}
+
+header{
+    padding: 0 0;
+}
+
+
+section {
+    margin: 0 0;
+}
+
+h1 {
+    font-size: 4rem;
+    margin: 0em 0 0.5em;
+    font-family: 'Great Vibes', cursive;
+}
+
+h1 span {
+    text-transform:none;
+    display: block;
+    font-size: 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+
+.hero-bg p {
+    font-weight: bold;
+    margin: 0 1em 3em;
+}
+
+
+
+.form-container p {
+    color: gray;
+    margin-bottom: 1.5em;
+    font-weight: normal;
+    font-size: .9em;
+    margin-top: .3em;
+}
+
+input[type=button] {
+    background-color: pink;
+    border: none;
+    width: 70%;
+    color:rgb(94, 6, 79);
+    font-weight: bold;
+    padding: 0.5em;
+    margin-top: 1em;
+    border-radius: .5em;
+    font-size: 1.3em;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color:rgb(236, 63, 144);
+}
+
+p {
+    line-height:  var(--leading);
+}
+
+@media (min-width: 730px) {
+
+    section {
+        margin: 0 0 0 0;
+    }
+
+    .hero-bg selection{
+        width: 100%
+    }
+}
+
+@media (min-width: 930px) {
+
+    .hero-bg{
+        padding-bottom: 4em;
+    }
+
+    .hero-bg p {
+        font-weight: bold;
+        margin: 0 0 0;
+    }
+
+    .hero-bg section {
+        width: 100%;
+    }
+
+    form {
+        box-sizing: border-box;
+        display: block;
+        grid-template-columns: repeat(2,50%);
+
+    }
+    .form first button {
+        position: absolute;
+    }
+
+
+    input[type="button"] {
+        height: fit-content;
+        grid-template-columns: repeat(2,50%);
+        font-size: 1.1em;
+        margin-left: 1em;
+        margin-top: 2.2em;
+        padding: .7em 0;
+        width: 30%;
+    }
+    .hero-bg p {
+        margin-bottom: 0;
+    }
+
+
+    .top {
+        animation: fadeIn 2s forwards;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-2em);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+    }
+
+}
