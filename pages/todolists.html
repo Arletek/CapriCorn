@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/todolists.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com//ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="../images/logo.png" type="image/png">
+    <title>To-do Lists</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+
+<!-- Firebaseui modules attached-->
+    <script src="../node_modules/firebaseui/dist/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../node_modules/firebaseui/dist/firebaseui.css" />
+
+    <script  type="text/javascript" language="javascript" src="../js/todolists.js"></script>
+    
+</head>
+<body>
+
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/todolists.js"></script>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <a href="dashboard.html"><img src="../images/logo.png" style="width: 80px; height: 80px;" alt="Logo of the app"></a>
+            <h1>CapriCorn</h1>
+        </div>
+
+        <div class="sidebar-menu">
+            <ul>
+                <li>
+                    <a href="calendar.html"><span class="las la-calendar"></span><span>Calendar</span></a>
+                </li>
+
+                <li>
+                    <a href="timetracker.html"><span class="las la-clock"></span><span>Time Tracker</span></a>
+                </li>
+
+                <li>
+                    <a href="todolists.html"><span class="las la-list-alt"></span><span>To-do list</span></a>
+                </li>
+
+                <li>
+                    <a href="raports.html"><span class="las la-chart-pie"></span><span>Raports</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="">
+                    <span class="las la-bars"></span>
+                </label>
+                To-do list
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Search here">
+            </div>
+            
+            <div class="user-wrapper">
+                <span class="las la-user-circle"></span>
+
+                <div class="hello">
+                    <h3 id="username"> <script src="../js/username.js"></script> </h> 
+                </div>
+                <button onclick="logout()"><span class="las la-door-open"></span> Log out</button>   
+        </div>
+    </header>
+    <main>
+        <div class="cards">
+
+            <div class="card-single">
+                <div>
+                    <div id="content-container">
+                        <div id="finish_task_header">
+                            <p>Manage your tasks</p>
+                        </div>
+                
+                        <div id="task_input_container">
+                            <input id="input_box" type="text" placeholder="Start a task">
+                            <input id="input_date" type="date">
+                            <button id="input_button" onclick="add_task()">Enter Task <i class="fa fa-arrow-circle-right"></i></button>
+                
+                        
+                        
+                        </div>
+                <!--To do tasks-->
+                        <p class="header">Task</p>
+                        <div class="container">
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                                <div id="task_tool">
+                                    <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
+                                    <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
+                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </div>
+                
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                                <div id="task_tool">
+                                    <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
+                                    <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
+                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </div>
+                
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                                <div id="task_tool">
+                                    <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
+                                    <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
+                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                
+                <!--Finish tasks-->
+                        <p class="header">Finished</p>
+                        <div class="container">
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                            </div>
+                
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                                
+                            </div>
+                
+                            <div class="task_container">
+                                <div id="task_data">
+                                    <p id="task_title" contenteditable="false">Task Title 1</p>
+                                    <p id="task_date" contenteditable="false">Task Date 1</p>
+                                </div>
+                                
+                            </div>
+                
+                        </div>
+                
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+</div>
+    
+</body>
+</html>

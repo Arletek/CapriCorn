@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In Page</title>
+    <link rel="stylesheet" href="../css/login.css">
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
+
+<!-- Firebaseui modules attached-->
+    <script src="../node_modules/firebaseui/dist/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="../node_modules/firebaseui/dist/firebaseui.css" />
+</head>
+
+<body>
+    <script src="../js/firebase.js"></script>
+    <script src="../js/login.js"></script> 
+
+    <div class="hero-bg">
+        <section class="top">
+             <header>
+                 <a href="../main.html"><img src="../images/logo.png" alt="Logo of the App" style="width:15em;height:15em;"></a>
+             </header>
+ 
+             <h1><span>Welcome</span>to the world of planning </h1>
+ 
+             <p>Join our team and plan your every task with us !</p>
+             <p>You can log in now !</p>
+         </section> 
+
+         <section class="bottom">
+            <div class="login-panel">
+                <div id="firebaseui-auth-container"></div>
+                <div id="loader">Loading...</div>
+            </div>
+         </section>
+     </div>
+
+</body>
+</html>
