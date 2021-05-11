@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Poppins');
 /*Custom Properties*/
 
 :root {
@@ -14,28 +13,26 @@ html{
   overflow-x: hidden;
   background-repeat: no-repeat;
 }
-
 body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     margin-bottom: 0em;
-    padding-bottom: 6.7em;
 }
 
 .hero-bg {
-    /*background-image: linear-gradient(to bottom, purple, black);*/
     color: white;
     text-align: center;
     padding-bottom: 0em;
 }
 
 header{
-    padding: 0 0;
+    padding-top: 2em;
 }
 
 
 section {
     margin: 0 0;
+    width: 100%;
 }
 
 h1 {
@@ -54,15 +51,33 @@ h1 span {
 
 
 .hero-bg p {
-    font-weight: bold;
-    margin: 0 1em 3em;
+    font-weight: bold;   
 }
 
-p {
-    line-height:  var(--leading);
+.bottom{
+  display: flex;
+  justify-content: center;
 }
 
-@media (min-width: 730px) {
+.login-panel {
+  border-radius: 1em;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column; 
+  justify-content: center;
+  min-width: 10%;
+  min-height: 30%;
+  background-color: rgb(194, 170, 183);
+}
+
+@media (max-width: 375px){
+  header{
+    padding-top: 0.5em;
+  }  
+
+}
+@media (max-width: 730px) {
 
     section {
         margin: 0 0 0 0;
@@ -75,19 +90,14 @@ p {
 
 @media (min-width: 930px) {
 
-    .hero-bg{
-        padding-bottom: 4em;
-    }
-
     .hero-bg p {
         font-weight: bold;
-        margin: 0 0 0;
+        margin: 0 0 2em;
     }
 
     .hero-bg section {
         width: 100%;
     }
-
 
     .top {
         animation: fadeIn 2s forwards;
@@ -106,7 +116,6 @@ p {
     }
 
 }
-
 
 /* ANIMATIONS */
 
@@ -218,42 +227,7 @@ p {
     outline: none;
 } 
 
-span{
-  font-size: 2rem;
-  color: white;
-  text-align: center;
-}
 
-#logoutbox a{
-  font-family: 'Montserrat', sans-serif;
-  font-weight: bold;
-  font-size: 2rem;
-  text-decoration: none;
-  color: white;
-  text-align: center;
-  background-color: #f38fe2;
-  padding: 1rem 1rem 1rem 1rem;
-  border-radius: 2rem;
-  box-sizing: content-box;
-}
-
-#logoutbox {
-  width: fit-content;
-}
-
-#logoutbox a:hover{
-  background-color: #460d3a;
-}
-
-#logoutbox a:active{
-  background-color: #460d3a;
-  transform: translateY(4px);
-}
-
-.text-container{
-  display: inline-grid;
-  text-align: center;
-  align-items: center;
-  justify-items: center;
-  grid-template-rows: auto auto 120px;
+* {
+  box-sizing: border-box;
 }

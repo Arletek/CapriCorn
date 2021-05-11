@@ -1,0 +1,341 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+:root{
+    --main-color:  #f1dced;
+    --text-grey: black;
+    --main-dark: rgb(179, 79, 132); 
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.sidebar {
+    width: 345px;
+    position: fixed;
+    height: 100%;
+    background: var(--main-dark);
+    left: 0;
+    top:0;
+}
+
+.main-content {
+    margin-left: 345px;
+    cursor: default;
+}
+
+.sidebar-brand {
+    padding-left: 1 rem 0rem 1rem 2rem;
+    font-size: 1rem;
+    color: var(--text-grey);
+    display:grid;
+    grid-template-columns: 80px 180px;
+    justify-items: center;
+    align-items: center;
+    padding-bottom: 1.5rem;
+    cursor: default;
+}
+
+.sidebar-menu li {
+    width: 100%;
+    margin-bottom:  1.7rem;
+    padding-left:  2rem;
+}
+
+.sidebar-menu a {
+    display: block;
+    color: var(--text-grey);
+    font-size: 1.1rem;
+}
+
+.sidebar-menu a span:first-child {
+    font-size: 1.5rem;
+    padding-right: 1rem;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.search-wrapper {
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.search-wrapper span {
+    display: inline-block;
+    padding: 0rem 1rem;
+    font-size: 1.5rem;
+    background-color: white;
+    height: 100%;
+}
+
+.search-wrapper span::before {
+    position: relative;
+    background-color: white;
+    top: 25%;
+}
+ .search-wrapper input {
+     height: 100%;
+     padding: .5rem;
+     border: none;
+     outline: none;
+ }
+
+.user-wrapper {
+    display: grid;
+    grid-template-columns: 40px 100px 100px;
+    justify-items: center;
+    align-items: center;
+    font-size: 1rem;
+    cursor: default;
+}
+
+.user-wrapper span{
+    font-size: 2rem;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    margin-bottom: 0em;
+    background-color: var(--main-color);
+}
+
+
+button{
+    font-family: 'Montserrat', sans-serif ;
+    height: 100%;
+    border: 1px solid var(--main-dark);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
+    align-items: center;
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 0rem 0.5rem 0rem 0.5rem;
+    background-color: rgb(241, 175, 227);
+    font-size: 0.7rem;
+    cursor: pointer;
+}
+
+.stopwatch{
+    margin-left: 2%;
+    width: 300px;
+    background-color: #f5eff4;
+    border-radius: 5px;
+    box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
+    padding: 15px;
+    display: inline-grid;
+    text-align: center;
+    align-items: center;
+    justify-items: center;
+    grid-template-rows: auto auto auto;
+
+}
+    .controls{
+        display: flex;
+    }
+        .controls button {
+            flex-grow: 1;
+            margin: 0 5px 4px;
+            border-radius: 5px;
+            box-shadow: 0 4px rgba(0,0,0,0.75);
+            border:0;
+            outline: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .start{
+            background-color: rgb(97, 230, 97);
+        }
+
+        .start:hover{
+            background-color: rgb(47, 170, 47);
+        }
+
+        .start:active{
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        .stop{
+            background-color: rgb(221, 94, 94);
+        }
+
+        .stop:hover{
+            background-color: red;
+        }
+
+        .stop:active{
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+        .reset{
+            background-color: rgb(94, 236, 247);
+        }
+    
+        .reset:hover{
+            background-color: rgb(10, 165, 165);
+        }
+
+        .reset:active{
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+
+        .savetimebutton:hover{
+            background-color: purple;
+        }
+
+        .savetimebutton:active{
+            transform: translateY(2px);
+            box-shadow: none;
+        }
+
+    .display{
+        font-size: 50px;
+        text-align: center;
+        margin-top: 10px;
+
+        
+    }
+
+    .hours::after{
+        content:":";
+    }
+
+    .minutes::after{
+        content:":";
+    }
+
+    .savetime{
+        margin-top: 1rem;
+    }
+
+    .savetime button {
+        flex-grow: 1;
+        margin: 0 5px 4px;
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0,0,0,0.75);
+        border:0;
+        outline: 0;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    #secondcard p{
+        background-color:  #f5eff4;
+        font-size: 4rem;
+        margin-left: 2%;
+        width: 900px;
+        background-color: #f5eff4;
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
+        padding: 15px;
+    }
+
+    .cards{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .events_to_track{
+        background-color:  #f5eff4;
+        margin-left: 2%;margin-top: 5%;
+        width: 900px;
+        background-color: #f5eff4;
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
+        padding: 15px;
+        display: inline-block;
+    }
+
+    .events_head p{
+        font-weight: bold;
+        text-align: center;
+        font-size: 2.5rem;
+    }
+
+    #addtask{
+        flex-grow: 1;
+        margin: 0 5px 4px;
+        border-radius: 5px;
+        box-shadow: 0 4px rgba(0,0,0,0.75);
+        border:0;
+        outline: 0;
+        font-size: 16px;
+        font-weight: bold;
+        margin-left: 1rem;
+    }
+
+    #addtask:hover{
+        background-color: purple;
+    }
+
+    #addtask:active{
+        transform: translateY(2px);
+        box-shadow: none;
+    }
+
+    .tasks-to-track-container{
+        background-color: white;
+        margin: 1rem 1rem 1rem 1rem;
+        padding: 1rem 1rem 1rem 1rem;
+        border-radius: 0.5rem;
+    }
+
+    .task-container{
+        background-color: rgb(231, 221, 221);
+        padding: 0.5rem 1rem 0.5rem 1rem;
+        margin: 0.3rem 0.3rem 0.3rem 0.3rem;
+        border-radius: 0.3rem;
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+
+    .task-container #task_tool{
+        justify-self: right;
+    }
+
+    .task-container #task-title:hover{
+        background-color: rgb(207, 195, 195);
+        border-radius: 0.3rem;
+        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    }
+    .task-container #task-title:active{
+        transform: translateY(2px);
+    }
+
+    #task_tool button{
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: rgb(219, 106, 106);
+        border: none;
+
+    }
+
+    #task_tool button:hover{
+        background-color: red;
+    }
+
+    #task_tool button:active{
+        transform: translateY(2px);
+    }
