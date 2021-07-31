@@ -4,11 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Page</title>
+    <title>Projects</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../css/dashboard.css">
-    <link rel="stylesheet" href="../css/ranking.css">
-    <link rel="stylesheet" href="../css/tips.css">
+    <link rel="stylesheet" href="../css/projects.css">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.6.0/firebase-app.js"></script>
@@ -21,11 +19,11 @@
    
 </head>
 <body>
-<script src="../js/dashboard.js"></script>
+<script src="../js/projects.js"></script>
 
     <div class="sidebar">
         <div class="sidebar-brand">
-            <img src="../images/logo.png"  alt="Logo of the app">
+            <a href="dashboard.html"><img src="../images/logo.png" alt="Logo of the app"></a>
             <a href="dashboard.html" style="color: black;"><h1>CapriCorn</h1></a>
         </div>
 
@@ -58,9 +56,9 @@
         <header>
             <h2>
                 <label for="">
-                    <span class="las la-bars"></span>
+                    <span class="las la-briefcase"></span>
                 </label>
-                Main page
+                Projects
             </h2>
 
             <!--<div class="search-wrapper">
@@ -72,56 +70,36 @@
                 <span class="las la-user-circle"></span>
 
                 <div class="hello">
-                    <h3 id="username"> <script src="../js/username.js"></script> </h> 
+                    <h3 id="username"></h> 
                 </div>
                 <button onclick="logout()"><span class="las la-door-open"></span> Log out</button>   
         </div>
     </header>
     <main>
+        <div id="project_info">
+            <p>In this section you can add all the projects which you are dealing with right now.<br> 
+            After adding projects you will see a status line. It shows how many tasks that you added in section "To-do-list" are done.</p>
+        </div>
         <div class="cards">
 
             <div class="card-single">
-                    <div><p id="username1"><script src="../js/username.js"></script></p>
-                        <p>Let's get effective!</p>
-                    </div>   
+                    <div id="columns">
+                        <h3>Project names</h3>
+                        <h4>Status</h4>
+                    </div> 
+                    <div id="list-of-projects">
+                        <p style="font-size: 2rem;">Please wait, the data is loading...</p>
+                    </div> 
             </div>
 
             <div class="card-single">
-                <div class="ranking">
-                    <h1>Ranking Top 10</h1>
-                </div>   
+                <button id="addproj" onclick="addproj()">Add project</button>
+                <div id="proj-add-box">
+                    <input type="text" id="title_box" placeholder="Type a name of a new project...">
+                    <button id="title_box_button" onclick="submit_title()">Submit</button>
+                </div>
+
             </div>
-
-            <div class="card-single">
-                    <h1>Here are some tips...</h1> 
-                    <div id="tips">
-                        <div class="single-tip">
-                            <p>10 Tips for Managing Time Effectively</p>
-                            <a href="https://www.projectsmart.co.uk/10-tips-for-managing-time-effectively.php" target="_blank"><span class="las la-external-link-alt"></span></a>
-                        </div>
-
-                        <div class="single-tip">
-                            <p>A Brief Guide to Time Management</p>
-                            <a href="https://corporatefinanceinstitute.com/resources/careers/soft-skills/time-management-list-tips/" target="_blank"><span class="las la-external-link-alt"></span></a>
-                        </div>
-
-                        <div class="single-tip">
-                            <p>How to Manage Time</p>
-                            <a href="https://management30.com/blog/how-to-manage-time/" target="_blank"><span class="las la-external-link-alt"></span></a>
-                        </div>
-
-                        <div class="single-tip">
-                            <p>32 Time Management Tips To Work Less and Play More</p>
-                            <a href="https://toggl.com/track/time-management-tips/" target="_blank"><span class="las la-external-link-alt"></span></a>
-                        </div>
-
-                        <div class="single-tip">
-                            <p>10 tips for mastering time management at work</p>
-                            <a href="https://www.lucidchart.com/blog/time-management-at-work" target="_blank"><span class="las la-external-link-alt"></span></a>
-                        </div>
-                    </div>
-            </div>
-
         </div>
     </main>
 </div>

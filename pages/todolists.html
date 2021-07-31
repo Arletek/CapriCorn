@@ -32,19 +32,20 @@
 </head>
 <body>
 
-    <script src="../js/dashboard.js"></script>
-    <script src="../js/todolists.js"></script>
-
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="dashboard.html"><img src="../images/logo.png" style="width: 80px; height: 80px;" alt="Logo of the app"></a>
-            <h1>CapriCorn</h1>
+            <a href="dashboard.html"><img src="../images/logo.png"  alt="Logo of the app"></a>
+            <a href="dashboard.html" style="color: black;"><h1>CapriCorn</h1></a>
         </div>
 
         <div class="sidebar-menu">
             <ul>
                 <li>
                     <a href="calendar.html"><span class="las la-calendar"></span><span>Calendar</span></a>
+                </li>
+
+                <li>
+                    <a href="projects.html"><span class="las la-briefcase"></span><span>Projects</span></a>
                 </li>
 
                 <li>
@@ -66,21 +67,16 @@
         <header>
             <h2>
                 <label for="">
-                    <span class="las la-bars"></span>
+                    <span class="las la-list-alt"></span>
                 </label>
                 To-do list
             </h2>
-
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
-            </div>
             
             <div class="user-wrapper">
                 <span class="las la-user-circle"></span>
 
                 <div class="hello">
-                    <h3 id="username"> <script src="../js/username.js"></script> </h> 
+                    <h3 id="username"></h> 
                 </div>
                 <button onclick="logout()"><span class="las la-door-open"></span> Log out</button>   
         </div>
@@ -89,24 +85,39 @@
         <div class="cards">
 
             <div class="card-single">
-                <div>
                     <div id="content-container">
                         <div id="finish_task_header">
                             <p>Manage your tasks</p>
                         </div>
                 
                         <div id="task_input_container">
-                            <input id="input_box" type="text" placeholder="Start a task">
+                            <input id="input_box" type="text" onclick="clearinputbox(this);" placeholder="Start a task" value="">
+                            <div class="input-field">
+                                <select id="_selectionid">
+                                  <option value="" disabled selected>Choose the project</option>
+                                  <option value="0">None</option>
+                                </select>
+                              </div>
                             <input id="input_date" type="date">
-                            <button id="input_button" onclick="add_task()">Enter Task <i class="fa fa-arrow-circle-right"></i></button>
-                
-                        
-                        
+                            <button id="input_button" onclick="add_task()">Add Task <i class="fa fa-arrow-circle-right"></i></button>
                         </div>
+
+                        <div class="filtersection">
+                            <div id="selectionheader">
+                                <p>Filter tasks</p>
+                            </div>
+                            <select id="_selectionid2">
+                            </select>
+                            <input id="input_date2" type="date">
+                        </div>
+                </div>
+            </div>
+                <div class=card-single>
                 <!--To do tasks-->
-                        <p class="header">Task</p>
-                        <div class="container">
-                            <div class="task_container">
+                <div id="headerABC1"><p class="header">Task</p></div>
+                <div id="headerABC2"><p class="header">Finished</p></div>
+                        <div class="container" id="unfinished_task_container">
+                            <div class="task_container" id="task_container">
                                 <div id="task_data">
                                     <p id="task_title" contenteditable="false">Task Title 1</p>
                                     <p id="task_date" contenteditable="false">Task Date 1</p>
@@ -114,67 +125,25 @@
                                 <div id="task_tool">
                                     <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
                                     <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
-                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
-                                </div>
-                            </div>
-                
-                            <div class="task_container">
-                                <div id="task_data">
-                                    <p id="task_title" contenteditable="false">Task Title 1</p>
-                                    <p id="task_date" contenteditable="false">Task Date 1</p>
-                                </div>
-                                <div id="task_tool">
-                                    <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
-                                    <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
-                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
-                                </div>
-                            </div>
-                
-                            <div class="task_container">
-                                <div id="task_data">
-                                    <p id="task_title" contenteditable="false">Task Title 1</p>
-                                    <p id="task_date" contenteditable="false">Task Date 1</p>
-                                </div>
-                                <div id="task_tool">
-                                    <button id="task_done_button" onclick="task_done();"><i class="fa fa-check"></i></button>
-                                    <button id="task_edit_button" onclick="task_edit();"><i class="fa fa-pencil"></i></button>
-                                    <button id="task_delete_button" onclick="task_delete();"><i class="fa fa-trash"></i></button>
+                                    <button id="task_delete_button" onclick="task_delete()"><i class="fa fa-trash"></i></button>
                                 </div>
                             </div>
                         </div>
                 
                 <!--Finish tasks-->
-                        <p class="header">Finished</p>
-                        <div class="container">
-                            <div class="task_container">
-                                <div id="task_data">
-                                    <p id="task_title" contenteditable="false">Task Title 1</p>
-                                    <p id="task_date" contenteditable="false">Task Date 1</p>
-                                </div>
-                            </div>
                 
+                        <div class="container" id="finished_task_container">
+                            
                             <div class="task_container">
                                 <div id="task_data">
                                     <p id="task_title" contenteditable="false">Task Title 1</p>
                                     <p id="task_date" contenteditable="false">Task Date 1</p>
                                 </div>
-                                
-                            </div>
-                
-                            <div class="task_container">
-                                <div id="task_data">
-                                    <p id="task_title" contenteditable="false">Task Title 1</p>
-                                    <p id="task_date" contenteditable="false">Task Date 1</p>
-                                </div>
-                                
                             </div>
                 
                         </div>
-                
                     </div>
                 </div>
-            </div>
-            
         </div>
     </main>
 </div>

@@ -16,39 +16,46 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.0/firebase-ui-auth.css" />
 
 <!-- Firebaseui modules attached-->
     <script src="../node_modules/firebaseui/dist/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="../node_modules/firebaseui/dist/firebaseui.css" />
+
+    <script  type="text/javascript" language="javascript" src="../js/timetracker.js"></script>
     
 </head>
 <body>
-    <script src="../js/dashboard.js"></script>
 
     <div class="sidebar">
         <div class="sidebar-brand">
-            <a href="dashboard.html"><img src="../images/logo.png" style="width: 80px; height: 80px;" alt="Logo of the app"></a>
-            <h1>CapriCorn</h1>
+            <a href="dashboard.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")'><img src="../images/logo.png" alt="Logo of the app"></a>
+            <a href="dashboard.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")' style="color: black;"><h1>CapriCorn</h1></a>
         </div>
 
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="calendar.html"><span class="las la-calendar"></span><span>Calendar</span></a>
+                    <a href="calendar.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")'><span class="las la-calendar"></span><span>Calendar</span></a>
                 </li>
 
                 <li>
-                    <a href="timetracker.html"><span class="las la-clock"></span><span>Time Tracker</span></a>
+                    <a href="projects.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")'><span class="las la-briefcase"></span><span>Projects</span></a>
                 </li>
 
                 <li>
-                    <a href="todolists.html"><span class="las la-list-alt"></span><span>To-do list</span></a>
+                    <a href="timetracker.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")'><span class="las la-clock"></span><span>Time Tracker</span></a>
                 </li>
 
                 <li>
-                    <a href="raports.html"><span class="las la-chart-pie"></span><span>Raports</span></a>
+                    <a href="todolists.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")'><span class="las la-list-alt"></span><span>To-do list</span></a>
+                </li>
+
+                <li>
+                    <a href="raports.html" onclick='return confirm("You are leaving time tracker page, if you are tracking time, please save this time first. Do you still want to leave this page?")' ><span class="las la-chart-pie"></span><span>Raports</span></a>
                 </li>
             </ul>
         </div>
@@ -58,21 +65,21 @@
         <header>
             <h2>
                 <label for="">
-                    <span class="las la-bars"></span>
+                    <span class="las la-clock"></span>
                 </label>
                 Time Tracker
             </h2>
 
-            <div class="search-wrapper">
+            <!--<div class="search-wrapper">
                 <span class="las la-search"></span>
                 <input type="search" placeholder="Search here">
-            </div>
+            </div>-->
             
             <div class="user-wrapper">
                 <span class="las la-user-circle"></span>
 
                 <div class="hello">
-                    <h3 id="username"> <script src="../js/username.js"></script> </h> 
+                    <h3 id="username"></h> 
                 </div>
                 <button onclick="logout()"><span class="las la-door-open"></span> Log out</button>   
         </div>
@@ -98,40 +105,50 @@
             </div>
 
             <div class="card-single" id="secondcard">
-                <p>you are tracking this one...</p>
+                <p id="selected-task-title">Choose the task</p>
+            </div>
+            <div class="card-single">
+                <div class="events_to_track">
+                    <div class="events_head">
+                        <p id="title">Select a project</p>
+                    </div>
+                    <div class="tasks-to-track-container">
+                        
+                        <div class="task-container">
+                            <div id="task_data">
+                                <p id="task-title" onclick="change_the_title()">Programming in C++</p>
+                            </div>
+                            <div id="task_tool">
+                                <button id="delete" onclick="deletetask()"><span class="las la-ban"></span></button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div id="buttons_box">
+                        <button id="button_in_box" onclick="addnewtask()">Add new task</button>
+                        <button id="button_in_box" onclick="display_projects()">Back to projects</button>
+                    </div>
+
+                    <div id="foradjusttitlebox">
+                        <div id="title_box">
+                            <input type="text" id="title_box_task" placeholder="Type a name of a task...">
+                            <div class="input-field">
+                                <select id="_selectionid">
+                                  <option value="" disabled selected>Choose the project</option>
+                                  <option value="0">None</option>
+                                </select>
+                            </div>
+                            <button id="title_box_button" onclick="submit_title()">Submit</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
             </div>
         </div>
 
-        <div class="events_to_track">
-            <div class="events_head">
-                <p>Choose the task to track time</p>
-            </div>
-            <div class="tasks-to-track-container">
-                
-                <div class="task-container">
-                    <div id="task_data">
-                        <p id="task-title">Title...</p>
-                    </div>
-                    <div id="task_tool">
-                        <button id="delete" onclick="deletetask()"><span class="las la-ban"></span></button>
-                    </div>
-                </div>
+        
 
-                <div class="task-container">
-                    <div id="task_data">
-                        <p id="task-title">Title...</p>
-                    </div>
-                    <div id="task_tool">
-                        <button id="delete" onclick="deletetask()"><span class="las la-ban"></span></button>
-                    </div>
-                </div>
-                
-            </div>
-            <button id="addtask" onclick="addnewtask()">Add new task</button>
-        </div>
-
-
-        <script src="../js/timetracker.js"></script>
     </main>
 </div>
 
