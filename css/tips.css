@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+.single-tip {
+    display: grid;
+    grid-template-columns: 80% 20%;
+    margin-top: 2%;
+    background-color: gainsboro;
+    padding-left: 1%;
+}
+
+.single-tip p:first-child{
+    font-size: 1.5rem;
+    color: black;
+    text-align: unset;
+    font-weight: unset;
+}
+
+.single-tip a span{
+    font-size: 2rem;
+    color: black;
+    text-align: unset;
+    justify-self: right;
+    align-self: right;
+    text-align: right;
+    height: 100%;
+    width: 100%;
+}
+
+#tips{
+    
+    padding-left: 2%;
+}
+
+.card-single:nth-child(3){
+    justify-self: center;
+    margin: 10%;
+    padding: 1%;
+    background-color: aliceblue;
+    width: 80%;
+    height: auto;
+    border: 1px solid aliceblue;
+    border-radius: 1rem;
+}
+
+@media (max-width: 750px) {
+
+    .single-tip p:first-child {
+        font-size: 1rem;
+    }
+
+    .single-tip a span {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .single-tip {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        margin-top: 2%;
+        background-color: gainsboro;
+        padding-left: 1%;
+    }
+    
+    .single-tip p:first-child{
+        font-size: 0.5rem;
+        color: black;
+        text-align: unset;
+        font-weight: unset;
+    }
+    
+    .single-tip a span{
+        font-size: 1rem;
+        color: black;
+        text-align: unset;
+        justify-self: right;
+        align-self: right;
+        text-align: right;
+        height: 100%;
+        width: 100%;
+    }
+    
+    #tips{
+        
+        padding-left: 2%;
+    }
+    
+    .card-single:nth-child(3){
+        justify-self: center;
+        margin: 10%;
+        padding: 1%;
+        background-color: aliceblue;
+        width: 80%;
+        height: auto;
+        border: 1px solid aliceblue;
+        border-radius: 1rem;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .single-tip {
+        display: grid;
+        grid-template-columns: 80% 20%;
+        margin-top: 2%;
+        background-color: gainsboro;
+        padding-left: 1%;
+    }
+    
+    .single-tip p:first-child{
+        font-size: 0.4rem;
+        color: black;
+        text-align: unset;
+        font-weight: unset;
+    }
+    
+    .single-tip a span{
+        font-size: 0.7rem;
+        color: black;
+        text-align: unset;
+        justify-self: right;
+        align-self: right;
+        text-align: right;
+        height: 100%;
+        width: 100%;
+    }
+
+    .card-single:nth-child(3){
+        justify-self: center;
+        margin: 10%;
+        padding: 4%;
+        background-color: aliceblue;
+        width: 80%;
+        height: auto;
+        border: 1px solid aliceblue;
+        border-radius: 1rem;
+    }
+}

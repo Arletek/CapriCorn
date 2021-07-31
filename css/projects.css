@@ -5,12 +5,6 @@
     --main-color:  #f1dced;
     --text-grey: black;
     --main-dark: rgb(179, 79, 132); 
-
-    --sidebar-color:#f45b69;
-    --center-color:#e2cfea;
-    --text-color:#114b5f;
-    --diff:#028090;
-    --diff2:#456990;
 }
 
 * {
@@ -30,7 +24,6 @@
     left: 0;
     top:0;
 }
-
 img{
     height: 80px;
     width: 80px;
@@ -150,44 +143,118 @@ button{
     align-items: center;
 }
 
-.card-single p:first-child {
-    font-size: 3rem;
-    font-weight: bold;
-    text-align: center;
+#project_info{
+    background-color: white;
+    width: 50%;
+    padding: 1%;
+    margin-left: 2.7%;
+    border-radius: 10px;
 }
+
 
 .card-single p{
     font-size: 3rem;
-    text-align: center;
-    margin-top: 2%;
-    color: rgb(226, 218, 218);
 }
 
-.card-single:first-child{
-    margin-top: 1rem;
-    background-image: url(../images/CapriCorn.png);
-    background-size: cover;
-    margin-left: 20rem;
-    margin-right: 20rem;
-    border-radius: 3rem;
-    padding-bottom: 1rem;
-    padding-top: 1rem;
-    box-shadow: 2px 2px 2px 2px #7a0b66;
-    transition: cubic-bezier(0.175, 0.885, 0.32, 10);
-    transition: 0.8s;
+#columns{
+    display: grid;
+    grid-template-columns: auto auto;
+    margin: 5%;
+    
+}
+
+#columns h3,h4{
+    font-size: 1.2rem;
+    padding: 1%;
+    text-align: center;
+    margin: 1%;
+    background-color: rgb(175, 136, 172);
+}
+
+.proj-container{
+    display: grid;
+    grid-template-columns: 50% 5% auto;
+    border: 1px solid #000;
+    margin: 1%;
+    align-items: center;
+}
+
+.proj-container p{
+    /*border-right: 1px solid #000;*/
+    padding: 1%;
+}
+
+.proj-container button{
+    height: 50%;
+    background-color: var(--main-color);
+    border: none;
+    border-radius: 1rem;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto;
-    align-items: center;
     justify-items: center;
-    grid-column: span 2;
+    align-items: center;
+    margin: 0rem 0rem 0rem 0rem;
+    padding: 0rem 0rem 0rem 0rem;
+    background-color: none;
+    font-size: 2rem;
+    cursor: pointer;
 }
 
-.card-single:hover{
-    background-color: pink;
-    transition: 0.8s;
+.proj-container button:hover{
+   background-color: red;
+}
+.proj-container button:active{
+    transform: translateY(0.5rem);
+ }
+
+.status-container{
+    background: linear-gradient(90deg, #b677b1 50%, white 50%);
+    border: 0.2rem solid black;
+    margin: 2%;
+    border-radius: 5rem;
+    padding: 1%;
+    height: 50%;
 }
 
+#list-of-projects{
+    display: grid;
+    grid-template-columns: auto;
+    margin: 5%;
+}
+
+#proj-add-box{
+    display: none;
+    width: 40%;
+}
+
+#addproj {
+    font-size: 3rem;
+    margin-bottom: 2%;
+    padding: 2%;
+    background-color: rgb(233, 221, 231);
+    border: 0.2rem solid gray;
+
+}
+#title_box_button{
+    font-size: 1rem;
+    margin-top: 2%;
+    padding: 2%;
+    background-color: rgb(233, 221, 231);
+    border: 0.2rem solid gray;
+    text-align: center;
+    justify-self: center;
+}
+#addproj:hover, #title_box_button:hover{
+    background-color: rgb(201, 178, 197);
+}
+#addproj:hover, #title_box_button:active{
+    transform: translateY(0.5rem);
+}
+
+#title_box{
+    font-size: 1.2rem;
+    padding: 1%;
+}
 
 /*for smaller view*/
 @media (max-width: 1330px) {
@@ -218,131 +285,123 @@ button{
 
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1040px) {
     .card-single p:first-child {
-        font-size: 3rem;
-        font-weight: bold;
+        font-size: 2rem;
+        font-weight: none;
         text-align: center;
-        margin-top: 20%;
+        margin-top: 5%;
+    }
+    .card-single p {
+        font-size: 2rem;
     }
 
-}
+    .proj-container {
+        display: grid;
+        grid-template-columns: 50% 5% auto;
+        border: 1px solid #000;
+        margin: 1%;
+        align-items: center;
+    }
 
-@media (max-width: 1330px) {
+    .proj-container button {
+        height: 50%;
+        background-color: var(--main-color);
+        border: none;
+        border-radius: 1rem;
+        display: grid;
+        grid-template-columns: auto;
+        justify-items: center;
+        align-items: center;
+        margin: 0rem 0rem 0rem 0rem;
+        padding: 0rem 0rem 0rem 0rem;
+        background-color: none;
+        font-size: 1rem;
+        cursor: pointer;
+    }
 
-    .main-content {
-        margin-left: 80px;
+    #addproj {
+        font-size: 2rem;
+        margin-bottom: 2%;
+        padding: 2%;
+        background-color: rgb(233, 221, 231);
+        border: 0.2rem solid gray;
+    }
+    #proj-add-box {
+        width: 45%;
+    }
+
+    #title_box {
+        font-size: 0.6rem;
+        padding: 1%;
+    }
+    #columns {
+        display: grid;
+        grid-template-columns: 55% auto;
+        margin: 5%;
+    }
+
+    #columns h3, h4 {
+        font-size: 0.8rem;
+        padding: 1%;
+        text-align: center;
+        margin: 1%;
+        background-color: rgb(175, 136, 172);
+    }
+
+    .user-wrapper {
+        display: grid;
+        grid-template-columns: 40px 100px 100px;
+        justify-items: center;
+        align-items: center;
+        font-size: 1rem;
         cursor: default;
     }
 
-    .sidebar {
-        width: 80px;
-        position: fixed;
-        height: 100%;
-        background: var(--main-dark);
-        left: 0;
-        top:0;
-    }
-
-    .sidebar-brand h1{
-        font-size: 0rem;
-    }
-
-    .sidebar-menu a span:nth-child(2){
-        display: block;
-        color: var(--text-grey);
-        font-size: 0rem;
-    }
-
 }
 
-@media (max-width: 999px) {
+@media (max-width: 700px) {
     .card-single p:first-child {
-        font-size: 2rem;
-        font-weight: bold;
+        font-size: 1rem;
+        font-weight: none;
         text-align: center;
         margin-top: 5%;
     }
-    .card-single p:nth-child(2) {
-        font-size: 2rem;
-        text-align: center;
-        margin-top: 20%;
+    .card-single p {
+        font-size: 1rem;
     }
-   
 
-    .card-single:first-child {
-        margin-top: 1rem;
-        background-image: url(../images/CapriCorn.png);
-        background-size: cover;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        border-radius: 3rem;
-        padding-bottom: 1rem;
-        padding-top: 1rem;
-        box-shadow: 2px 2px 2px 2px #7a0b66;
-        transition: cubic-bezier(0.175, 0.885, 0.32, 10);
-        transition: 0.8s;
+    .proj-container {
+        display: grid;
+        grid-template-columns: 50% 5% auto;
+        border: 1px solid #000;
+        margin: 1%;
+        align-items: center;
+    }
+
+    .proj-container button {
+        height: 50%;
+        background-color: var(--main-color);
+        border: none;
+        border-radius: 1rem;
         display: grid;
         grid-template-columns: auto;
-        grid-template-rows: auto;
-        align-items: center;
         justify-items: center;
-        grid-column: span 2;
-    }
-
-}
-
-@media (max-width: 750px) {
-    h1 {
-        display: block;
-        font-size: 1em;
-        margin-block-start: 0.67em;
-        margin-block-end: 0.67em;
-        margin-inline-start: 0px;
-        margin-inline-end: 0px;
-        font-weight: bold;
-    }
-
-    #user p {
-        font-size: 0rem;
-    }
-}
-
-@media (max-width: 600px) {
-    h1 {
-        font-size: 0.8em;
-    }
-
-    .card-single p:first-child {
-        font-size: 1rem;
-        font-weight: bold;
-        text-align: center;
-        margin-top: 5%;
-        padding-left: 1%;
-        padding-right: 1%;
-    }
-    .card-single :first-child {
-        grid-column: span 1;
-    }
-    .card-single p:nth-child(2) {
-        font-size: 1rem;
-        text-align: center;
-        margin-top: 20%;
-        padding-left: 1%;
-        padding-right: 1%;
-        grid-column: span 1;
-    }
-    .card-single p:nth-child(3) {
-        grid-column: span 1;
-    
-    }
-    .cards {
-        display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 50% 50% 50%;
         align-items: center;
+        margin: 0rem 0rem 0rem 0rem;
+        padding: 0rem 0rem 0rem 0rem;
+        background-color: none;
+        font-size: 0.5rem;
+        cursor: pointer;
     }
 
+    #addproj {
+        font-size: 1rem;
+        margin-bottom: 7%;
+        padding: 2%;
+        background-color: rgb(233, 221, 231);
+        border: 0.2rem solid gray;
+    }
 }
 
 @media(max-width:499px){
@@ -434,39 +493,44 @@ button{
         margin: 4%;
     }
 
-}
-
-
-@media (max-width: 450px) {
-    .card-single p:first-child {
-        font-size: 1rem;
-    }
-    .card-single p:nth-child(2) {
-        font-size: 1rem;
-    }
-
-    .card-single:first-child {
-        margin-top: 1rem;
-        background-image: url(../images/CapriCorn.png);
-        background-size: cover;
-        margin-left: 2rem;
-        margin-right: 2rem;
-        border-radius: 3rem;
-        padding-bottom: 1rem;
-        padding-top: 1rem;
-        box-shadow: 2px 2px 2px 2px #7a0b66;
-        transition: cubic-bezier(0.175, 0.885, 0.32, 10);
-        transition: 0.8s;
+    .cards {
         display: grid;
-        grid-template-columns: auto;
-        grid-template-rows: auto;
+        grid-template-columns: 70% 30%;
+        grid-template-rows: auto auto;
         align-items: center;
-        justify-items: center;
-        grid-column: span 2;
     }
 
-    h1 {
-        font-size: 0.5em;
+    #addproj {
+        font-size: 0.8rem;
+        margin-bottom: 7%;
+        padding: 2%;
+        background-color: rgb(233, 221, 231);
+        border: 0.17rem solid gray;
+    }
+    #proj-add-box {
+        width: 100%;
     }
 
+    
+    #title_box {
+        font-size: 0.3rem;
+        padding: 2%;
+        padding-right: 10%;
+        width: 100%;
+    }
+
+    #title_box_button {
+        font-size: 0.7rem;
+        margin-top: 2%;
+        padding: 2%;
+        background-color: rgb(233, 221, 231);
+        border: 0.17rem solid gray;
+        text-align: center;
+        justify-self: center;
+    }
+
+    #project_info{
+        font-size: 7px;
+        width: 65%;
+    }
 }

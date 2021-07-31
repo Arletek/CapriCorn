@@ -25,6 +25,11 @@
     top:0;
 }
 
+img{
+    height: 80px;
+    width: 80px;
+}
+
 .main-content {
     margin-left: 345px;
     cursor: default;
@@ -114,6 +119,35 @@ body {
     background-color: var(--main-color);
 }
 
+@media (max-width: 1330px) {
+
+    .main-content {
+        margin-left: 80px;
+        cursor: default;
+    }
+
+    .sidebar {
+        width: 80px;
+        position: fixed;
+        height: 100%;
+        background: var(--main-dark);
+        left: 0;
+        top:0;
+    }
+
+    .sidebar-brand h1{
+        font-size: 0rem;
+    }
+
+    .sidebar-menu a span:nth-child(2){
+        display: block;
+        color: var(--text-grey);
+        font-size: 0rem;
+    }
+
+}
+
+
 
 button{
     font-family: 'Montserrat', sans-serif ;
@@ -132,8 +166,8 @@ button{
 }
 
 .stopwatch{
-    margin-left: 2%;
-    width: 300px;
+    margin-left: 1%;
+    width: 100%;
     background-color: #f5eff4;
     border-radius: 5px;
     box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
@@ -211,9 +245,7 @@ button{
     .display{
         font-size: 50px;
         text-align: center;
-        margin-top: 10px;
-
-        
+        margin-top: 10px;  
     }
 
     .hours::after{
@@ -241,26 +273,35 @@ button{
 
     #secondcard p{
         background-color:  #f5eff4;
-        font-size: 4rem;
-        margin-left: 2%;
-        width: 900px;
+        font-size: 3rem;
+        width: 100%;
         background-color: #f5eff4;
         border-radius: 5px;
         box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
         padding: 15px;
+        display: flex;
     }
 
     .cards{
+        margin-top: 5%;
         display: grid;
         grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
         justify-items: center;
         align-items: center;
     }
 
+    .card-single{
+        margin: 1%;
+    }
+    .card-single:nth-child(3){
+        grid-column: span 2;
+    }
+
     .events_to_track{
         background-color:  #f5eff4;
-        margin-left: 2%;margin-top: 5%;
-        width: 900px;
+        /*margin-left: 50%;margin-top: 10%;*/
+        width: 100%;
         background-color: #f5eff4;
         border-radius: 5px;
         box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
@@ -274,7 +315,13 @@ button{
         font-size: 2.5rem;
     }
 
-    #addtask{
+    #buttons_box{
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
+    }
+
+    #button_in_box{
         flex-grow: 1;
         margin: 0 5px 4px;
         border-radius: 5px;
@@ -286,11 +333,11 @@ button{
         margin-left: 1rem;
     }
 
-    #addtask:hover{
+    #button_in_box:hover{
         background-color: purple;
     }
 
-    #addtask:active{
+    #button_in_box:active{
         transform: translateY(2px);
         box-shadow: none;
     }
@@ -311,16 +358,15 @@ button{
         grid-template-columns: auto auto;
     }
 
+    .task-container:hover{
+        background-color:rgb(151, 144, 144) ;
+    }
+
     .task-container #task_tool{
         justify-self: right;
     }
 
-    .task-container #task-title:hover{
-        background-color: rgb(207, 195, 195);
-        border-radius: 0.3rem;
-        padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    }
-    .task-container #task-title:active{
+    .task-container:active{
         transform: translateY(2px);
     }
 
@@ -338,4 +384,187 @@ button{
 
     #task_tool button:active{
         transform: translateY(2px);
+    }
+
+    /*Popup window*/
+
+    #title_box_task{
+        display: flex;
+        /*margin: 10px 10px 10px 10px;*/
+        margin: 2%;
+        background-color: rgb(238, 203, 240);
+        color: rgb(82, 79, 79);
+        font-size: 0.8rem;
+        border: none;
+        /*padding: 1rem 1rem 1rem 1rem;*/
+        padding: 3%;;
+        border-radius: 10px;
+        width: 100%;
+        
+    }
+
+    #title_box_task:focus{
+        outline: none;
+    }
+
+    #title_box_task::placeholder{
+        color: rgb(82, 79, 79);
+    }
+    #title_box{
+        display: none;
+        justify-items: center;
+        align-items: center;
+        background-color:white;
+        width: 80%;
+        height: 95%;
+        padding: 20px 20px 20px 20px;
+        border-radius: 10px;
+        box-shadow: 5px 5px grey;
+        margin-top: 1%;
+    }
+
+    #foradjusttitlebox{
+        display: grid;
+        align-items: center;
+        justify-items: center;
+    }
+
+    #title_box button{
+        padding:  0.3rem 1rem 0.3rem 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: rgb(207, 192, 192);
+        border: none;
+    }
+    #title_box button:hover{
+        background-color: rgb(156, 144, 144);
+    }
+
+    #title_box button:active{
+        background-color: rgb(156, 144, 144);
+        transform: translateY(2px);
+    }
+
+
+    @media(max-width:770px){
+        .cards{
+            margin-top: 5%;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto;
+            justify-items: center;
+            align-items: center;
+        }
+    
+        .card-single:nth-child(3){
+            grid-column: span 1;
+        }
+
+        #secondcard p{
+            background-color:  #f5eff4;
+            font-size: 2rem;
+            width: 100%;
+            background-color: #f5eff4;
+            border-radius: 5px;
+            box-shadow: 0 4px rgba(0,0,0, 0.75), 0 0 1px rgba(0,0,0, 0.15);
+            padding: 15px;
+            display: flex;
+        }
+
+        .events_head p{
+            font-size: 1.2rem;
+        }
+
+    }
+
+
+    @media(max-width:499px){
+        .main-content {
+            margin-left: 60px;
+            cursor: default;
+        }
+    
+        .sidebar {
+            width: 60px;
+            position: fixed;
+            height: 100%;
+            background: var(--main-dark);
+            left: 0;
+            top:0;
+        }
+    
+        .sidebar-brand h1{
+            font-size: 0rem;
+        }
+    
+        .sidebar-menu a span:nth-child(2){
+            display: block;
+            color: var(--text-grey);
+            font-size: 0rem;
+        }
+    
+        .sidebar-menu ul{
+            margin-block-start: 0em;
+        margin-block-end: 0em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        padding-inline-start: 0px;
+        }
+    
+        .sidebar-menu li{
+            width: 100%;
+            margin-bottom: 1.7rem;
+            padding-left: 1.2rem;   
+        }
+    
+        .sidebar-brand {
+            display: grid;
+            grid-template-columns: auto;
+            justify-items: center;
+            align-items: center;
+            padding-bottom: 0.5rem;
+            cursor: default;
+        }
+    
+        .sidebar img{
+            height: 60px;
+            width: 60px;
+        }
+    
+        .selection-month label {
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+    
+        .selection-week label {
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+    
+        select {
+            width: 90%;
+            font-size: 0.5rem;
+        }
+    
+        h2{
+            font-size: 0.7rem;
+            text-align: center;
+            align-self: center;
+            justify-self: center;
+        }
+    
+        .user-wrapper {
+            font-size: 0.5rem;
+            grid-template-columns: auto auto auto;
+        }
+    
+        .user-wrapper span{
+            font-size: 1rem;
+            
+        }
+    
+        .hello{
+            margin: 4%;
+        }
+    
     }
