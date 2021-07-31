@@ -17,6 +17,5 @@ firebase.auth().onAuthStateChanged(function(user) {
  } else {  
   // Sign out operation. Reset the current user UID.  
   currentUid = null;  
-  console.log("no user signed in");  
  }  
 }); 

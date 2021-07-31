@@ -35,8 +35,29 @@
           firebase.auth.EmailAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
-        tosUrl: '../main.html'
+        //tosUrl: '../pages/login.html',
+        // Privacy policy url.
+        //privacyPolicyUrl: '../pages/login.html'
       };
 
       ui.start('#firebaseui-auth-container', uiConfig);
 })()
+
+firebase.auth().onAuthStateChanged(user =>{
+  if(user){
+      console.log('User is signed in');
+      document.getElementById("username").innerHTML = user.displayName;
+      fs.collection("user_data").doc(user.displayName).set({
+          email: user.email,
+          uid: user.uid,
+          username: user.displayName 
+      }).then(()=>{
+          console.log('user added to collection "user_data"');
+      }).catch(err=>{
+          console.log('it does not work', err);
+      });
+  }
+  else{
+      //alert('Your login session has expored or you have logged out, login again to continue');
+  }
+});

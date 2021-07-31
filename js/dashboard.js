@@ -10,8 +10,92 @@ var firebaseConfig = {
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
+  let fs = firebase.firestore();
   
 function logout() {
     firebase.auth().signOut();
+    localStorage.clear();
     location.assign('../pages/logout.html')
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  showranking();
+      
+});
+
+firebase.auth().onAuthStateChanged(user =>{
+  if(user){
+      console.log('User is signed in');
+      document.getElementById("username").innerHTML = user.displayName;
+  }
+});
+
+function showranking(){
+  firebase.auth().onAuthStateChanged(user=>{
+    if(user){
+      var num =1;
+      fs.collection("userstime").orderBy("totaltime","desc").limit(10).get().then((snapshot)=>{
+        snapshot.docs.forEach(doc=>{
+          showperson(doc,num);
+          num++;
+        });
+      });
+    }
+});
+}
+
+function showperson(doc,num){
+   var _ranking=document.getElementsByClassName("ranking")[0];
+   let divik = document.createElement('div');
+   let singlename = document.createElement('p');
+   let timeforperson = document.createElement('p');
+   let numeration = document.createElement('p');
+
+   divik.setAttribute("id","user");
+
+   var data = doc.data().totaltime;
+   var hours = 0;
+   var minutes = 0;
+   
+   while(data-3600>0){
+       hours++;
+       data=data-3600;
+   }
+ 
+   while(data-60>0){
+       minutes++;
+       data=data-60;
+   }
+ 
+   var sec = data;
+
+   singlename.textContent=doc.id;
+   timeforperson.textContent=hours+' h '+minutes+' min '+sec+' sec';
+   numeration.textContent=num;
+
+   divik.appendChild(numeration);
+   divik.appendChild(singlename);
+   divik.appendChild(timeforperson);
+   _ranking.appendChild(divik);
+}
+
+function showtotaltime(){
+  var data = localStorage.getItem("totaltime");
+  var hours = 0;
+  var minutes = 0;
+  
+  while(data-3600>0){
+      hours++;
+      data=data-3600;
+  }
+
+  while(data-60>0){
+      minutes++;
+      data=data-60;
+  }
+
+  var sec = data;
+
+  document.getElementById('fullworkingtime').innerHTML=hours+' h '+minutes+' min '+sec+' sec';
 }
